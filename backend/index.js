@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
 const port = process.env.PORT || 4000;
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
@@ -13,9 +14,10 @@ app.use(express.json());
 app.use(cors());
 
 // Database connection with mongoDB
-mongoose.connect(
-  `mongodb+srv://VijayJS:Shetty%401512@cluster0.swomc.mongodb.net/e-commerce`
-);
+mongoose.connect(process.env.MONGODB_URI, {
+  
+  ssl: true, // Explicit SSL connection if necessary
+});
 
 // Schema for Creating Products
 

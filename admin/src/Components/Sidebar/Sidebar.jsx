@@ -1,7 +1,7 @@
 import React from "react";
 import "./Sidebar.css";
-import add_product_icon from "../../assets/product_Cart.svg";
-import list_product_icon from "../../assets/Product_List_icon.svg";
+import add_product_icon from "../../assets/add_product.png";
+import list_product_icon from "../../assets/product_list.png";
 import { Link } from "react-router-dom";
 function Sidebar() {
   return (

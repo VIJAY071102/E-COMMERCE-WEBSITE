@@ -8,6 +8,11 @@
     height: 100vh;
     background: white;
 }
+.sidebar-item img {
+    width: 24px; /* Adjust size as needed */
+    height: 24px;
+    object-fit: contain; /* Ensures the image does not stretch */
+}
 
 .sidebar-item{
     display: flex;

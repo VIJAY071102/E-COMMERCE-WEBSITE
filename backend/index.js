@@ -161,6 +161,7 @@ app.post("/getcart", fetchUser, async (req, res) => {
   res.json(userData.cartData);
 });
 
+
 // http://localhost:4000
 app.listen(port, () => {
   console.log(`server running at http://localhost:${port}`);

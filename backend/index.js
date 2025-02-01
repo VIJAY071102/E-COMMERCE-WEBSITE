@@ -14,9 +14,8 @@ const userRoutes = require("./routes/user.routes.js");
 
 app.use(express.json());
 app.use(cors());
-dbConnect();
-app.use("/api/users", userRoutes);
 
+app.use("/api/users", userRoutes);
 
 app.post("/addproduct", async (req, res) => {
   let products = await Product.find({});
@@ -44,7 +43,6 @@ app.post("/addproduct", async (req, res) => {
     name: req.body.name,
   });
 });
-
 
 // API creation
 app.get("/", (req, res) => {
@@ -98,7 +96,6 @@ app.get("/newcollection", async (req, res) => {
   console.log("NewCollections Fetched");
   res.send(newcollection);
 });
-
 
 //creating endpoint for popular in women section
 app.get("/popularinwomen", async (req, res) => {
@@ -161,8 +158,8 @@ app.post("/getcart", fetchUser, async (req, res) => {
   res.json(userData.cartData);
 });
 
-
 // http://localhost:4000
 app.listen(port, () => {
+  dbConnect();
   console.log(`server running at http://localhost:${port}`);
 });

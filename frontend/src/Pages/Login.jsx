@@ -13,7 +13,7 @@ function Login() {
   const login = async () => {
     console.log("Sign Up function Excecuted", formData);
     let responseData;
-    await fetch("http://localhost:4000/api/users/login", {
+    await fetch("https://e-commerce-website-backend-u54s.onrender.com/api/users/login", {
       method: "POST",
       headers: {
         Accept: "application/form-data",
@@ -33,7 +33,7 @@ function Login() {
   const signup = async () => {
     console.log("Sign Up function Excecuted", formData);
     let responseData;
-    await fetch("http://localhost:4000/api/users/signup", {
+    await fetch("https://e-commerce-website-backend-u54s.onrender.com/api/users/signup", {
       method: "POST",
       headers: {
         Accept: "application/form-data",

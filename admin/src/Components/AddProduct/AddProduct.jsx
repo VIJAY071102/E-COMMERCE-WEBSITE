@@ -26,7 +26,7 @@ function AddProduct() {
     let formData = new FormData();
     formData.append("product", image);
 
-    await fetch("http://localhost:4000/upload", {
+    await fetch("https://e-commerce-website-backend-u54s.onrender.com/upload", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -40,14 +40,17 @@ function AddProduct() {
     if (responseData.success) {
       product.image = responseData.image_url;
       console.log(product);
-      await fetch("http://localhost:4000/addproduct", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(product),
-      })
+      await fetch(
+        "https://e-commerce-website-backend-u54s.onrender.com/addproduct",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(product),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           data.success ? alert("Product Added") : alert("failed");

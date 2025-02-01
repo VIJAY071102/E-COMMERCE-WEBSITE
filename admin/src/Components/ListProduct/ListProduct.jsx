@@ -4,7 +4,9 @@ import cross_icon from "../../assets/cross_icon.png";
 function ListProduct() {
   const [allproducts, setAllproducts] = useState([]);
   const fetchInfo = async () => {
-    await fetch("http://localhost:4000/allproducts")
+    await fetch(
+      "https://e-commerce-website-backend-u54s.onrender.com/allproducts"
+    )
       .then((res) => res.json())
       .then((data) => {
         setAllproducts(data);
@@ -14,17 +16,20 @@ function ListProduct() {
     fetchInfo();
   }, []);
 
-   const  remove_product=async (id)=>{
-    await fetch('http://localhost:4000/removeproduct',{
-      method:'POST',
-      headers:{
-        Accept:'application/json',
-        'Content-Type':'application/json',
-      },
-      body:JSON.stringify({id:id})
-    })
+  const remove_product = async (id) => {
+    await fetch(
+      "https://e-commerce-website-backend-u54s.onrender.com/removeproduct",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: id }),
+      }
+    );
     await fetchInfo();
-  }
+  };
 
   return (
     <div className="ListProduct">
@@ -55,7 +60,10 @@ function ListProduct() {
                 <p>${product.old_price}</p>
                 <p>${product.new_price}</p>
                 <p>{product.category}</p>
-                <img onClick={()=>{remove_product(product.id)}}
+                <img
+                  onClick={() => {
+                    remove_product(product.id);
+                  }}
                   src={cross_icon}
                   className="listproduct-remove-icon"
                   alt=""
